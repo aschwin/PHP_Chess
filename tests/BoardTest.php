@@ -19,13 +19,13 @@ class BoardTest extends PHPUnit_Framework_TestCase
 
 	public function testAddPiece() {
 
-		$this->target->AddPiece(new Pawn(), 2, 1);
+		$this->target->AddPiece(new Pawn(), new BoardCoordinate(1, 1));
 	}
 }
 
 class Board {
 
-	public function AddPiece(Pawn $piece, $xCoordinate = 0, $yCoordinate = 0) {
+	public function AddPiece(Pawn $piece, BoardCoordinate $moveTarget) {
 
 	}
 }
@@ -34,3 +34,20 @@ class Pawn {
 
 }
 
+class BoardCoordinate {
+
+	/**
+	 * @var integer $_x;
+	 */
+	private $_x;
+	/**
+	 * @var integer $_y;
+	 */
+	private $_y;
+
+	public function __construct($xCoordinate, $yCoordinate) {
+
+		$this->_x = $xCoordinate;
+		$this->_y = $yCoordinate;
+	}
+}
